@@ -10,12 +10,12 @@
 <div class="container text-white color-light">
   <div class="col">
     <br />
-   <form>
-    <div class="form-group">
+   <form @objectifText>
+    <div class="form-group" >
       <label  for="objectifText">Un nouvelle elément liste</label>
       <input [(ngModel)]="objectifText" type="text" class="form-control" name ="objectifText" id="objectifText" >
     </div>
-    <p>{{ objectifText }}</p>
+    <p >{{ objectifText }}</p>
     <button *ngIf="!update" type="button" class="btn btn-lg btn-danger"
      (click)="ajoutItem()">
      {{ btnText }}
@@ -27,12 +27,12 @@
    </form>
     
   </div>
-  <div class="col text-white">
+  <div class="col text-white" [@animObject]="objectifs.length">
     <br />
-    <ul *ngFor="let elt of objectifs; let i = index">
+    <ul *ngFor="let elt of objectifs; let i = index" >
 
       <li class="life-container" >{{ elt }}
-        <span (click)="deleteElt(i)" class="badge badge-pill badge-danger">Delete</span>
+        <span  (click)="deleteElt(i)" class="badge badge-pill badge-danger">Delete</span>
         <span (click)="editElt(i)" class="badge badge-pill badge-warning">Edit</span>
       </li>
     

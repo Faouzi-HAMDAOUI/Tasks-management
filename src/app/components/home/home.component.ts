@@ -1,11 +1,17 @@
 import { Component, OnInit } from '@angular/core';
-// import {  trigger, style,transition, animate, keyframes } from '@angular/animation';
-// import { query, stagger } from '@angular/animations';
+import { animobjectifs, objectifText, animObject } from 'src/app/animations';
+
 
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
-  styleUrls: ['./home.component.scss']
+  styleUrls: ['./home.component.scss'],
+  animations: [
+    animobjectifs,
+    objectifText,
+    animObject
+  ]
+
 })
 export class HomeComponent implements OnInit {
 
