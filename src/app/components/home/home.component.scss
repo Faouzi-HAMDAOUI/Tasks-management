@@ -38,4 +38,14 @@ input.btn{
   cursor:pointer;
 }
 
+.tourne {
+  transform: rotate(-5deg); /* Équivalent à rotateZ(45deg) */
+  margin-top: 1em;
+  
+}
+.hover {
+  transform: rotate(360deg);
+  border-radius: 50%;
+}
+
 

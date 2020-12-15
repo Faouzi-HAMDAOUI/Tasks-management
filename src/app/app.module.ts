@@ -8,13 +8,18 @@ import { AppComponent } from './app.component';
 import { HomeComponent } from './components/home/home.component';
 import { AboutComponent } from './components/about/about.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
+import { About2Component } from './components/about2/about2.component';
+
+import { ConsultActiviteComponent } from './components/consult-activite/consult-activite.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
     AboutComponent,
-    NavbarComponent
+    NavbarComponent,
+    About2Component,
+    ConsultActiviteComponent
   ],
   imports: [
     BrowserModule,

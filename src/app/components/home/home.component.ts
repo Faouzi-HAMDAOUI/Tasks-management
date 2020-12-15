@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { animobjectifs, objectifText, animObject } from 'src/app/animations';
 
 
@@ -21,8 +22,9 @@ export class HomeComponent implements OnInit {
   objectifs = []
   update = false
   index = 0
+  animButton = false
 
-  constructor() { }
+  constructor(  private monRouter: Router,) { }
 
   ngOnInit(): void {
     this.nbItems = this.objectifs.length
@@ -33,6 +35,11 @@ export class HomeComponent implements OnInit {
      this.objectifs = [...this.objectifs, this.objectifText];
      this.objectifText = ''
      this.nbItems = this.objectifs.length
+
+     setTimeout(()=> {
+      return this.monRouter.navigate(['/about']);
+     },3000)
+    
   }
 
   // supprimer un element 
@@ -59,6 +66,17 @@ export class HomeComponent implements OnInit {
     this.objectifText = ''
     this.nbItems = this.objectifs.length
     this.btnText = 'Ajouter un élément'
+  }
+
+  // Annimation de bouton Ajouter
+
+  annimButton(){
+    if(this.objectifText != '') {
+      this.animButton = true
+    }else
+    {
+      this.animButton = false
+    }
   }
 
 }

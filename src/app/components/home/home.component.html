@@ -7,19 +7,24 @@
       Ma list d'élements ({{ nbItems }})
   </div>
 </div>
-<div class="container text-white color-light">
+<div class="container tourne text-white color-light">
   <div class="col">
     <br />
-   <form @objectifText>
+   <form >
     <div class="form-group" >
       <label  for="objectifText">Un nouvelle elément liste</label>
-      <input [(ngModel)]="objectifText" type="text" class="form-control" name ="objectifText" id="objectifText" >
+      <input [(ngModel)]="objectifText" (keyup)="annimButton()" name ="objectifText" type="text" class="form-control"  id="objectifText" >
     </div>
     <p >{{ objectifText }}</p>
-    <button *ngIf="!update" type="button" class="btn btn-lg btn-danger"
+    <button *ngIf="!update" type="button" [@animobjectifs]="animButton"
+    [ngClass]="{
+      'btn btn-lg btn-danger':!animButton,
+      'btn btn-lg btn-success':animButton
+    }"
      (click)="ajoutItem()">
      {{ btnText }}
     </button>
+    
     <button *ngIf="update" type="button" class="btn btn-lg btn-danger"
     (click)="updateElt(index)">
     {{ btnText }}
