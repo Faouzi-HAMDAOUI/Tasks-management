@@ -6,6 +6,7 @@ import { ConsultActiviteComponent } from './components/consult-activite/consult-
 
 
 
+
 const routes: Routes = [
   {
     path: '',
@@ -25,6 +26,10 @@ const routes: Routes = [
   },
   {
     path: 'consultAct/:id',
+    component: ConsultActiviteComponent
+  },
+  {
+    path: 'consultAct/:id/:nom',
     component: ConsultActiviteComponent
   }
 ];

@@ -11,6 +11,7 @@ import { NavbarComponent } from './components/navbar/navbar.component';
 import { About2Component } from './components/about2/about2.component';
 
 import { ConsultActiviteComponent } from './components/consult-activite/consult-activite.component';
+import { ActiviteService } from './services/activite.service';
 
 @NgModule({
   declarations: [
@@ -27,7 +28,7 @@ import { ConsultActiviteComponent } from './components/consult-activite/consult-
     FormsModule,
     BrowserAnimationsModule
   ],
-  providers: [],
+  providers: [ActiviteService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

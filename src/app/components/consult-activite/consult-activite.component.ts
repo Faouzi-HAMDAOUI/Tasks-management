@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
+import { ActiviteService } from 'src/app/services/activite.service';
 
 @Component({
   selector: 'app-consult-activite',
@@ -8,12 +9,49 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class ConsultActiviteComponent implements OnInit {
   id: string;
+  
   nom: string;
-  constructor( private route: ActivatedRoute) { }
+  objectifs = [] 
+  objectif = [] 
+  update = false
+  constructor(private monRouter: Router, private route: ActivatedRoute, private activiteService: ActiviteService) { }
 
   ngOnInit(): void {
-    this.id = this.route.snapshot.params['id'];
+
+    this.objectifs = this.activiteService.objectifs;
+    
+    if(this.route.snapshot.params['id'] != '')
+    {
+      this.id = this.route.snapshot.params['id'];
+      this.objectif = this.objectifs[this.id];
+    }
+    if(this.route.snapshot.params['nom'] != '')
+    {
     this.nom = this.route.snapshot.params['nom'];
+    }
   }
+
+  // supprimer l'element 
+  delete(i){
+    
+   this.objectifs.splice(i, 1); 
+    return this.monRouter.navigate(['/']);
+  }
+
+  // editer un element 
+  editElt(id){
+    
+    this.update = true
+    
+  }
+  // modifier un element 
+  updateElt(i){
+    
+    this.objectifs[i] = this.objectif;
+    this.update = false
+    
+  }
+
+  
 
 }

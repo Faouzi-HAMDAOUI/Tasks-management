@@ -16,16 +16,20 @@
       <input [(ngModel)]="objectifText" (keyup)="annimButton()" name ="objectifText" type="text" class="form-control"  id="objectifText" >
     </div>
     <p >{{ objectifText }}</p>
-    <button *ngIf="!update" type="button" [@animobjectifs]="animButton"
+    <button *ngIf="!update"  type="button" [@animobjectifs]="animButton"
     [ngClass]="{
       'btn btn-lg btn-danger':!animButton,
       'btn btn-lg btn-success':animButton
     }"
-     (click)="ajoutItem()">
+     (click)="ajoutItem(objectifText)">
      {{ btnText }}
     </button>
     
-    <button *ngIf="update" type="button" class="btn btn-lg btn-danger"
+    <button *ngIf="update" type="button" 
+    [ngClass]="{
+      'btn btn-lg btn-danger':!animButton,
+      'btn btn-lg btn-success':animButton
+    }"
     (click)="updateElt(index)">
     {{ btnText }}
    </button>
@@ -39,6 +43,7 @@
       <li class="life-container" >{{ elt }}
         <span  (click)="deleteElt(i)" class="badge badge-pill badge-danger">Delete</span>
         <span (click)="editElt(i)" class="badge badge-pill badge-warning">Edit</span>
+        <span routerLink="/consultAct/{{ i}}" class="badge badge-info badge-black">Details</span>
       </li>
     
     </ul>

@@ -1,1 +1,13 @@
-<h1>welcome to about!</h1>
+<h1>about works!</h1>
+
+<div class="col text-white">
+  <br />
+  <ul *ngFor="let elt of objectifs; let i = index" >
+
+    <li class="life-container" > {{ i +1 }}. {{ elt }}
+      
+    </li>
+  
+  </ul>
+</div>
+

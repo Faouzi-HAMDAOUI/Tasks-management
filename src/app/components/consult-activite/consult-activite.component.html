@@ -1,4 +1,17 @@
 <p>consult-activite works!</p>
 
-<h1>{{ id }}</h1> 
-<h1>{{ nom }}</h1>
+<h1 class="text-white">Detail de l'activité:</h1>
+<ul class="text-white" >
+<li class="life-container display-5" *ngIf="id != null">1. Nom de l'activité: 
+  <span *ngIf="!update" class="font-weight-bold">{{ objectif }}</span>
+  <input *ngIf="update" [(ngModel)]="objectif" name ="objectif" type="text" id="objectif" >
+ </li>
+ <br />
+ <button class="badge badge-pill badge-danger" (click)="delete(id)">Delete</button>   
+  <button *ngIf="!update" class="badge badge-pill badge-primary" (click)="editElt(id)">Modifier</button>
+  <button *ngIf="update" class="badge badge-pill badge-primary" (click)="updateElt(id)">Valider</button>
+  <span routerLink="/" class="badge badge-success badge-black">Reour</span>
+
+ <br />
+<li class="life-container" *ngIf="nom != null">2 Paramétre 2 transmis: {{ nom }}</li>
+</ul>
